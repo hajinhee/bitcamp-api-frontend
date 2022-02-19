@@ -3,23 +3,23 @@ import styled from "styled-components";
 import Header from "./Header";
 import Footer from "./Footer";
 
-export default function Layout ({children}){
+export default function Layout({children}){
     return (<div>
     <Table>
-     <thead>
-       <Tr>
-           <Th><Header/></Th>
-       </Tr>
-       </thead>
-       <tbody>
-       <Tr>
-        <Td>{children}</Td>
-       </Tr>
-       <Tr>
-           <Td><Footer/></Td>
-       </Tr>
-       </tbody>
-       </Table>
+        <thead>
+          <Tr>
+            <Th><Header/></Th>
+          </Tr>
+        </thead>
+        <tbody>
+            <Tr>
+            <Td>{children}</Td>
+            </Tr>
+         <Tr>
+            <Td><Footer/></Td>
+            </Tr>
+        </tbody>
+    </Table>
     </div>)
 }
 const Table = styled.table`
