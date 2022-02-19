@@ -1,22 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../containers/Layout';
 export default function Bmi(){
-    return (<Layout><h1>Bmi</h1>
-    <form>
-    
+    const [name, setName] = useState("")
+    const [height, setHeight] = useState(0.0)
+    const [weight, setWeight] = useState(0.0)
+    const [result, setResult] = useState("")
 
-        <div>
-            <label><b>이름</b></label>
-            <input/> <br/>
-            <label><b>키</b></label>
-            <input/> <br/>
-            <label><b>몸무게</b></label>
-            <input /><br/>
+    const Bmi = () => {
+        let name = document.getElementById('name').value
+        console.log('이름:' +name)
+        let height = document.getElementById('height').value
+        console.log('키:' +height)
+        let weight = document.getElementById('weight').value
+        console.log('몸무게:' +weight)
+        setName(name)
+        setHeight(Number(height))
+        setWeight(Number(weight))
+        setResult('이름: ' +name+ ' 키: ' +Number(height)+ ' 몸무게: ' +Number(weight))
+        console.log('결과:' +result)
+    }
 
-            <button>입력</button>
-            <button>취소</button>
-        </div>
+    return <Layout><h1>Bmi</h1>
+    <form action=''>
+    <label><b>name</b></label>
+    <input id="name" type=""/> <br/>
+    <label><b>height</b></label>
+    <input id="height" type=""/> <br/>
+    <label><b>weight</b></label>
+    <input id="weight" type=""/><br/>
 
+    <button onClick={()=>{Bmi()}}>enter</button>
+    <button>cancel</button>
     </form>
-    </Layout>)
+    <div>{result}</div>
+    </Layout>
 }
