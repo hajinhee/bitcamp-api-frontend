@@ -1,30 +1,32 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "./Header";
 import Footer from "./Footer";
+import Header from "./Header";
 
 export default function Layout({children}){
-    return (<div>
+
+    return <div>
     <Table>
-        <thead>
-          <Tr>
+    <thead>
+        <Tr>
             <Th><Header/></Th>
-          </Tr>
+        </Tr>
         </thead>
         <tbody>
-            <Tr>
+        <Tr>
             <Td>{children}</Td>
-            </Tr>
-         <Tr>
+        </Tr>
+        <Tr>
             <Td><Footer/></Td>
-            </Tr>
+        </Tr>
         </tbody>
     </Table>
-    </div>)
+    </div>
 }
+
 const Table = styled.table`
     border: 1px solid black;
-    width: 1000px; 
+    width: 1000px;
     height: 500px;
 `
 const Tr = styled.tr`

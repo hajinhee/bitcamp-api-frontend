@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from "./Navbar";
 
 export default function Header(){
-    return (<div>
+
+    return <div>
     <Navbar/>
-    </div>)}
+    </div>
+}

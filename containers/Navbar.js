@@ -1,21 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
 export default function Navbar(){
-    return (<div>
-    <nav>
-    <ul>
-        <Li><Link to={"/"}>Home</Link></Li>
-        <Li><Link to={"/bmi"}>Bmi</Link></Li>
-        <Li><Link to={"/calc"}>Calc</Link></Li>
-        <Li><Link to={"/grade"}>Grade</Link></Li>
-        <Li><Link to={"/login"}>Login</Link></Li>
-        <Li><Link to={"/counter"}>Counter</Link></Li>
-        </ul>
-    </nav>
-    
-    </div>)
+
+    return <div>
+    <Ul>
+      <Li><Link to={'/'}>Home</Link></Li>
+      <Li><Link to={'/bmi'}>Bmi</Link></Li>
+      <Li><Link to={'/calc'}>Calc</Link></Li>
+      <Li><Link to={'/grade'}>Grade</Link></Li>
+      <Li><Link to={'/login'}>Login</Link></Li>
+      <Li><Link to={'/counter'}>Counter</Link></Li>
+    </Ul>
+    </div>
 }
+
 const Ul = styled.ul`
   background-color: #FFDAB9;
   text-decoration: none;
