@@ -1,42 +1,43 @@
 import React, {useState} from "react";
 import Layout from "../containers/Layout";
+import axios from "axios";
 
 export default function Grade(){
-    const [name, setName] = useState('')
-    const [kor, setKor] = useState(0)
-    const [eng, setEng] = useState(0)
-    const [math, setMath] = useState(0)
-    const [result, setResult] = useState('')
+    const [inputs, setInputs] = useState({})
+    const {name, kor, eng, math} = inputs;
 
-    const grade = () => {
-        let name = document.getElementById('name').value
-        console.log('name: ' +name)
-        let kor = document.getElementById('kor').value
-        console.log('kor score: ' +kor)
-        let eng = document.getElementById('eng').value
-        console.log('eng score: ' +eng)
-        let math = document.getElementById('math').value
-        console.log('math score: ' +math)
-        setName(name)
-        setKor(kor)
-        setEng(eng)
-        setMath(math)
-        setResult('이름: ' +name+ ' 국어점수: ' +kor+ ' 영어점수: ' +eng+ ' 수학점수: ' +math)
-        console.log('result: ' +result)
+    const handleChange = (e) =>{
+        e.preventDefault()
+        const {value, name} = e. target;
+        setInputs({
+            ...inputs, [name] : value
+        })
     }
-    return <Layout><h1>성적표</h1>
-    <form action="">
-    <label htmlFor=""><b>이름</b></label><br/>
-    <input id="name" type=''/><br/>
-    <label htmlFor=""><b>국어점수</b></label><br/>
-    <input id="kor" type=''/><br/>
-    <label htmlFor=""><b>영어점수</b></label><br/>
-    <input id="eng" type=''/><br/>
-    <label htmlFor=""><b>수학점수</b></label><br/>
-    <input id="math" type=''/><br/>
+    const handleClick = (e)=> {
+        e.preventDefault()
+        const gradeRequest = {name, kor, eng, math}
+        alert(`사용자이름: ${JSON.stringify(gradeRequest)}`)
+    }
+
     
-    <button onClick={()=>{grade()}}>확인</button>
+    
+    
+    
+    return <Layout>
+    <form>
+    <h1>성적표</h1>
+    <div>
+    <label htmlFor=""><b>이름</b></label><br/>
+    <input name="name" type='text' onChange={handleChange}/><br/>
+    <label htmlFor=""><b>국어점수</b></label><br/>
+    <input name="kor" type='text'onChange={handleChange}/><br/>
+    <label htmlFor=""><b>영어점수</b></label><br/>
+    <input name="eng" type='text'onChange={handleChange}/><br/>
+    <label htmlFor=""><b>수학점수</b></label><br/>
+    <input name="math" type='text'onChange={handleChange}/><br/>
+    
+    <button onClick={handleClick}>확인</button>
+    </div>
     </form>
-    <div>{result}</div>
     </Layout>
 }
