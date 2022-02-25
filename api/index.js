@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 const SERVER = `http://localhost:8080`
-export const memberBmi = bmiRequest => axios.get(`${SERVER}/member/bmi`)
-export const memberCalc = calcRequest => axios.get(`${SERVER}/member/calc`)
-export const memberGrade = gradeRequest => axios.get(`${SERVER}/member/grade`)
-export const memberLogin = loginRequest => axios.get(`${SERVER}/member/login`)
+export const memberBmi = bmiRequest => axios.post(`${SERVER}/member/bmi`, bmiRequest)
+export const memberCalc = calcRequest => axios.post(`${SERVER}/member/calc`, calcRequest)
+export const memberGrade = gradeRequest => axios.post(`${SERVER}/member/grade`, gradeRequest)
+export const memberLogin = loginRequest => axios.post(`${SERVER}/member/login`, loginRequest)
 
 
 
