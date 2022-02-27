@@ -5,6 +5,7 @@ import Calc from "./components/Calc";
 import Counter from "./components/Counter";
 import Grade from "./components/Grade";
 import Login from "./components/Login";
+import Lotto from "./components/Lotto";
 import Home from "./pages/Home";
 
 export default function App(){
@@ -15,6 +16,7 @@ export default function App(){
       {path: 'calc', element: <Calc/>},
       {path: 'grade', element: <Grade/>},
       {path: 'login', element: <Login/>},
+      {path: 'lotto', element: <Lotto/>},
       {path: 'counter', element: <Counter/>},
     ])
 }

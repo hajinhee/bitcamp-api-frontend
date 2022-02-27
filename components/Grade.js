@@ -1,10 +1,11 @@
 import React, {useState} from "react";
+import { memberGrade } from "../api";
 import Layout from "../containers/Layout";
-import axios from "axios";
 
 export default function Grade(){
     const [inputs, setInputs] = useState({})
     const {name, kor, eng, math} = inputs;
+    const [result, setResult] = useState('')
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -15,8 +16,9 @@ export default function Grade(){
     } 
     const handleClick = (e) => {
         e.preventDefault()
-        const gradeRequest = {name, kor, eng, math}
-        alert(`사용자이름: ${JSON.stringify(gradeRequest)}`)
+        memberGrade({name, kor, eng, math}).then(res=>{setResult(res.data)})
+        .catch(err => console.log(`에러발생: ${err}`))
+
     }
 
     return <Layout>
@@ -35,5 +37,6 @@ export default function Grade(){
     <button onClick={handleClick}>확인</button>
     </div>
     </form>
+    <div>{result}</div>
     </Layout>
 }

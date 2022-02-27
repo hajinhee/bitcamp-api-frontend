@@ -11,6 +11,7 @@ export default function Navbar(){
       <Li><Link to={'/calc'}>Calc</Link></Li>
       <Li><Link to={'/grade'}>Grade</Link></Li>
       <Li><Link to={'/login'}>Login</Link></Li>
+      <Li><Link to={'/lotto'}>Lotto</Link></Li>
       <Li><Link to={'/counter'}>Counter</Link></Li>
     </Ul>
     </div>

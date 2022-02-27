@@ -1,9 +1,10 @@
 import React, {useState} from "react";
 import Layout from "../containers/Layout";
-import axios from "axios";
+import { memberCalc } from "../api";
 
 export default function Calc(){
     const [inputs, setInputs] = useState({})
+    const [result, setResult] = useState(0)
     const {num1, opcode, num2} = inputs;
 
     const handleChange = (e)=> {
@@ -15,8 +16,9 @@ export default function Calc(){
     }
     const handleClick = (e) => {
         e.preventDefault()
-        const calcRequest = {num1, opcode, num2}
-        alert(`사용자이름: ${JSON.stringify(calcRequest)}`)
+        memberCalc({num1, opcode, num2})
+        .then(res=>setResult(res.data))
+        .catch(err => console.log(`에러발생: ${err}`))
     }
 
     return <Layout>
@@ -36,5 +38,6 @@ export default function Calc(){
     <input name="num2" type='int' onChange={handleChange}/><br/>
     <button onClick={handleClick}>계산하기</button>
     </form>    
+    <div>계산결과: {result}</div>
     </Layout>
 }

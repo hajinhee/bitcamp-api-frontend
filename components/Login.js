@@ -1,9 +1,10 @@
 import React, {useState} from "react";
 import Layout from "../containers/Layout";
-import axios from "axios";
+import { memberLogin } from "../api";
 
 export default function Login(){
     const [inputs, setInputs] = useState({})
+    const [result, setResult] = useState('')
     const {id, password} = inputs;
 
     const handleChange = (e) => {
@@ -15,8 +16,9 @@ export default function Login(){
     }
     const handleClick = (e) => {
         e.preventDefault()
-        const loginRequest = {id, password}
-        alert(`사용자이름: ${JSON.stringify(loginRequest)}`)
+        memberLogin({id, password}).then(res=>{setResult(res.data)})
+        .catch(err => console.log(`에러발생: ${err}`))
+
     }
     
     return <Layout>
@@ -28,5 +30,6 @@ export default function Login(){
     <input name="password" type='text'onChange={handleChange}/><br/>
     <button onClick={handleClick}>확인</button>
     </form>
+    <div>{result}</div>
     </Layout>
 }
