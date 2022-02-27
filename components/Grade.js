@@ -28,11 +28,11 @@ export default function Grade(){
     <label htmlFor=""><b>이름</b></label><br/>
     <input type='text' name="name" onChange={handleChange}/><br/>
     <label htmlFor=""><b>국어점수</b></label><br/>
-    <input type='text' name="kor" onChange={handleChange}/><br/>
+    <input type='int' name="kor" onChange={handleChange}/><br/>
     <label htmlFor=""><b>영어점수</b></label><br/>
-    <input type='text' name="eng" onChange={handleChange}/><br/>
+    <input type='int' name="eng" onChange={handleChange}/><br/>
     <label htmlFor=""><b>수학점수</b></label><br/>
-    <input type='text' name="math" onChange={handleChange}/><br/>
+    <input type='int' name="math" onChange={handleChange}/><br/>
     
     <button onClick={handleClick}>확인</button>
     </div>
