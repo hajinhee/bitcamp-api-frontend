@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { memberBmi } from "../api";
-import Layout from "../containers/Layout";
+import {Layout} from "../containers/index";
 
 export default function Bmi(){ 
     const [inputs, setInputs] = useState({})

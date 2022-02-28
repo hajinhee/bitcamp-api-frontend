@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Footer from "./Footer";
-import Header from "./Header";
+import { Footer, Header } from "./index";
 
 export default function Layout({children}){
 
@@ -37,4 +36,5 @@ const Th = styled.th`
 `
 const Td = styled.td`
     border: 1px solid black;
+    white-space: pre-wrap;
 `

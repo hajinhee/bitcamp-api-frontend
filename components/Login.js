@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Layout from "../containers/Layout";
+import {Layout} from "../containers/index";
 import { memberLogin } from "../api";
 
 export default function Login(){
